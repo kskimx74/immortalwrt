@@ -75,6 +75,12 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         
+    - name: Load custom feeds
+      run: |
+        chmod +x $CUSTOM_FEEDS
+        cd openwrt
+        $GITHUB_WORKSPACE/$CUSTOM_FEEDS
+        
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
