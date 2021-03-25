@@ -1,5 +1,10 @@
-# Add openclash
 ARCH=amd64
+if [ ! -z $1 ]
+then
+  ARCH=$1
+fi
+# Add openclash
+
 cd /workdir/openwrt
 mkdir -p files/etc/openclash/core
 
